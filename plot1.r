@@ -24,20 +24,14 @@ rm(list=ls())
 #Add the PNG file and R code file to the top-level folder of your git repository (no need for separate sub-folders)
 
 ## Load Data
- fulldata <- read.table( "C:/Users/919647/Documents/PersonalDev/R/household_power_consumption.txt", sep=";" , header=TRUE, stringsAsFactors=FALSE)
- ##Convert to Date time here?
- 
- newdata <- fulldata[ which(fulldata$Date == "1/2/2007" | fulldata$Date =="2/2/2007"), ]
- 
- #Attach subset
- attach(newdata)
- 
- ##Create dataset for histograph
- globalActivePower<- as.numeric(newdata$Global_active_power)
- ##Create PNG
- png("plot1.png", width=480, height=480)
- hist(globalActivePower, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab = "Frequency")
- 
- dev.off()
- 
- 
+fulldata <- read.table( "/Users/itstuckertime/documents/coursera/household_power_consumption.txt", sep=";" , header=TRUE, stringsAsFactors=FALSE)
+
+newdata <- fulldata[ which(fulldata$Date == "1/2/2007" | fulldata$Date =="2/2/2007"), ]
+
+##Create dataset for histograph
+globalActivePower<- as.numeric(newdata$Global_active_power)
+##Create PNG
+png("plot1.png", width=480, height=480)
+hist(globalActivePower, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab = "Frequency")
+
+dev.off()
